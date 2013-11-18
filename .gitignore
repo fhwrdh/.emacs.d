@@ -1,0 +1,10 @@
+auto-save-list/
+elpa
+eshell
+projectile-bookmarks.eld
+savefile/
+tramp
+url/cache
+url/cookies
+*.elc
+*.DS_Store
