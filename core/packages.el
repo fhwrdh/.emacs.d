@@ -5,11 +5,16 @@
 (setq package-user-dir (expand-file-name "elpa" root-dir))
 
 ;; http://stackoverflow.com/questions/14836958/updating-packages-in-emacs
-(setq fhwrdh-packages
+(setq all-packages
       '(
   ace-jump-mode
   ack-and-a-half
+  change-inner
+  coffee-mode
+  css-eldoc
+  csv-mode
   dash
+  diff-hl
   diminish
   elisp-slime-nav
   ethan-wspace
@@ -30,12 +35,17 @@
   guru-mode
   helm
   helm-projectile
+  helm-swoop
   icicles
+  ido-vertical-mode
   jade-mode
   js2-mode
   logito
   magit
+  markdown-mode
+  move-text
   nodejs-repl
+  paredit
   pcache
   pkg-info
   powerline
@@ -44,11 +54,15 @@
   s
   smartparens
   smex
+  soft-charcoal-theme
   sws-mode
   twilight-theme
   undo-tree
+  visible-mark
+  visual-regex
+  visual-regexp
   volatile-highlights
-  zen-and-art-theme
+  window-numbering
   ))
 
 (package-initialize)
@@ -62,7 +76,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(dolist (pkg fhwrdh-packages)
+(dolist (pkg all-packages)
   (when (and (not (package-installed-p pkg))
            (assoc pkg package-archive-contents))
     (package-install pkg)))
@@ -73,7 +87,7 @@
   cleaning out unwanted packages."
   (interactive)
   (package-show-package-list
-   (remove-if-not (lambda (x) (and (not (memq x fhwrdh-packages))
+   (remove-if-not (lambda (x) (and (not (memq x all-packages))
                             (not (package-built-in-p x))
                             (package-installed-p x)))
                   (mapcar 'car package-archive-contents))))
@@ -100,6 +114,7 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.groovy\\'" groovy-mode groovy-mode)
     ("\\.haml\\'" haml-mode haml-mode)
     ("\\.hs\\'" haskell-mode haskell-mode)
+    ("\\.jade\\'" jade-mode jade-mode)
     ("\\.latex\\'" auctex LaTeX-mode)
     ("\\.less\\'" less-css-mode less-css-mode)
     ("\\.lua\\'" lua-mode lua-mode)
