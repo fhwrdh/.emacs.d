@@ -43,6 +43,8 @@
 ;(require 'helm-config)
 
 (setq default-directory "~/")
+(cd "~")
+
 ;; Emacs server
 (require 'server)
 (unless (server-running-p)
