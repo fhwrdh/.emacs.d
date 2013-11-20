@@ -9,6 +9,7 @@
       '(
   ace-jump-mode
   ack-and-a-half
+  anzu
   change-inner
   coffee-mode
   css-eldoc
