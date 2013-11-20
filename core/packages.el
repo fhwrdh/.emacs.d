@@ -10,6 +10,7 @@
   ace-jump-mode
   ack-and-a-half
   anzu
+  auto-complete
   change-inner
   coffee-mode
   css-eldoc
@@ -64,6 +65,7 @@
   visual-regexp
   volatile-highlights
   window-numbering
+  yasnippet
   ))
 
 (package-initialize)
@@ -150,7 +152,6 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
      (unless (package-installed-p package)
        (prelude-auto-install extension package mode))))
  prelude-auto-install-alist)
-
 
 (eval-after-load 'magit '(require 'setup-magit))
 

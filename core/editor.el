@@ -190,4 +190,21 @@ BEG and END (region to sort)."
 (require 'visible-mark)
 (visible-mark-mode)
 
+(require 'auto-complete-config)
+(ac-config-default)
+
+; Make sure we can find the dictionaries
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/dict")
+; Use dictionaries by default
+(setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
+
+(global-auto-complete-mode t)
+(setq ac-auto-start 2)
+
+
+;; must come after auto-complete configuration
+(require 'yasnippet)
+(yas-global-mode 1)
+(add-to-list 'ac-sources 'ac-source-yasnippet)
+
 (provide 'editor)
