@@ -36,4 +36,9 @@
 ;;(global-set-key (kbd "C-x C-i") 'ido-imenu)
 (global-set-key (kbd "C-c h") 'helm-mini)
 
+;; see defuns.el
+(global-set-key ">" 'my-indent-region)
+(global-set-key "<" 'my-unindent-region)
+
+
 (provide 'global-keys)
