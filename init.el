@@ -7,14 +7,16 @@
   "The core subdirectory")
 (defvar root-site-lisp-dir (expand-file-name "site-lisp" root-dir)
   "The site-lisp subdirectory")
+(defvar root-setup-dir (expand-file-name "setup" root-dir)
+  "The setup subdirectory")
 (defvar root-savefile-dir (expand-file-name "savefile" root-dir)
   "Stores the generated save/history files.")
 (unless (file-exists-p root-savefile-dir)
   (make-directory root-savefile-dir))
 
 (add-to-list 'load-path root-core-dir)
-(add-to-list 'load-path (expand-file-name "akfish-ac-coffee-409eef0" root-site-lisp-dir))
-(require 'ac-coffee)
+(add-to-list 'load-path root-site-lisp-dir)
+(add-to-list 'load-path root-init-dir)
 
 (require 'packages)
 (require 'defuns)
@@ -23,32 +25,14 @@
 (require 'global-keys)
 (require 'editor)
 (require 'osx)
+(require 'staging)
 
 ;; Keep emacs Custom-settings in separate file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
-(if (display-graphic-p)
-    (progn
-    ;; if graphic
-      (message "graphics!!!!!")
-      (set-face-attribute 'default nil :font "Monaco 10")
-      (load-theme 'twilight t)
-      )
-    ;; else (optional)
-  (message "no graphics!!!!!!!!!!!!!!!!!!!!")
-    )
-
-(setq flyspell-issue-welcome-flag nil) ;; fix flyspell problem
-
-(require 'tramp)
-(setq tramp-default-method "ssh")
-
-;(require 'helm-config)
-
 (setq default-directory "~/")
-(cd "~")
-
+;(cd "~")
 
 ;; Emacs server
 (require 'server)

@@ -1,4 +1,16 @@
 ;; ui.el
+(message "ui.el")
+
+(if (display-graphic-p)
+    (progn
+    ;; if graphic
+      (message "graphics!!!!!")
+      (set-face-attribute 'default nil :font "Monaco 10")
+      (load-theme 'twilight t)
+      )
+    ;; else (optional)
+  (message "no graphics!!!!!!!!!!!!!!!!!!!!")
+  )
 
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
