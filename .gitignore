@@ -2,11 +2,14 @@ ac-comphist.dat
 auto-save-list/
 elpa
 eshell
+image-dired/
 projectile-bookmarks.eld
+recentf
 savefile/
 tramp
-url/cache
-url/cookies
+url/
 *.elc
 *.DS_Store
-recentf
+*.gz
+*~
+/var/
