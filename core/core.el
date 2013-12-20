@@ -20,6 +20,6 @@
 
 (global-diff-hl-mode)
 
-(helm-mode)
+;(helm-mode)
 
 (provide 'core)
