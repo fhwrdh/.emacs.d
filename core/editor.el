@@ -125,7 +125,8 @@ BEG and END (region to sort)."
   ;; Compile '.coffee' files on every save
   (and (file-exists-p (buffer-file-name))
        (file-exists-p (coffee-compiled-file-name))
-       (coffee-cos-mode t)))
+;       (coffee-cos-mode t)
+       ))
 
 (add-hook 'coffee-mode-hook 'coffee-custom)
 
@@ -185,7 +186,7 @@ BEG and END (region to sort)."
 (setq uniquify-buffer-name-style 'forward)
 
 ;; Allow C-n to add newlines at the end of a buffer
-(setq next-line-add-newlines t)
+;(setq next-line-add-newlines t)
 
 (require 'visible-mark)
 (visible-mark-mode)
@@ -201,10 +202,13 @@ BEG and END (region to sort)."
 (global-auto-complete-mode t)
 (setq ac-auto-start 2)
 
-
 ;; must come after auto-complete configuration
 (require 'yasnippet)
 (yas-global-mode 1)
 (add-to-list 'ac-sources 'ac-source-yasnippet)
+
+;; winner-mode allows undo/redo of window config changes
+;; (when (fboundp 'winner-mode
+;;      (winner-mode 1))
 
 (provide 'editor)
