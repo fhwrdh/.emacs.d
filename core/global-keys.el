@@ -41,4 +41,6 @@
 (global-set-key "<" 'my-unindent-region)
 
 
+(global-set-key (kbd "C-x f") 'find-file-in-repository)
+
 (provide 'global-keys)

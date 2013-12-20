@@ -23,6 +23,7 @@
   exec-path-from-shell
   expand-region
   f
+  find-file-in-repository
   flx
   flx-ido
   flycheck
