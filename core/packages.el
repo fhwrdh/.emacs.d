@@ -3,13 +3,35 @@
 (require 'cl)
 (require 'package)
 (setq package-user-dir (expand-file-name "elpa" root-dir))
+(package-initialize)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+(defun fhwrdh-require-package (name)
+  (unless (package-installed-p name)
+    (package-install name)))
+
+(defun package-require (pkg)
+  "Install a package only if it's not already installed."
+  (when (not (package-installed-p pkg))
+    (package-install pkg)))
+
+
+
+
+;(fhwrdh-require-package 'anzu)
 
 ;; http://stackoverflow.com/questions/14836958/updating-packages-in-emacs
 (setq all-packages
       '(
   ace-jump-mode
   ack-and-a-half
-  anzu
+  ag
+;  anzu
   auto-complete
   change-inner
   coffee-mode
@@ -69,13 +91,6 @@
   yasnippet
   ))
 
-(package-initialize)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives
-             '("org" . "http://orgmode.org/elpa/"))
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 (when (not package-archive-contents)
   (package-refresh-contents))

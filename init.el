@@ -16,7 +16,7 @@
 
 (add-to-list 'load-path root-core-dir)
 (add-to-list 'load-path root-site-lisp-dir)
-(add-to-list 'load-path root-init-dir)
+(add-to-list 'load-path root-setup-dir)
 
 (require 'packages)
 (require 'defuns)
@@ -27,11 +27,18 @@
 (require 'osx)
 (require 'staging)
 
+;; Load all elisp files in setup directory
+(if (file-exists-p root-setup-dir)
+    (dolist (file (directory-files root-setup-dir t "\\.el$"))
+      (load file)
+      )
+  )
+
 ;; Keep emacs Custom-settings in separate file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
-(setq default-directory "~/")
+;(setq default-directory "~/")
 ;(cd "~")
 
 ;; Emacs server

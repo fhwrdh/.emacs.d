@@ -64,7 +64,4 @@
                                             (abbreviate-file-name (buffer-file-name))
                                           "%b"))))
 
-;; anzu shows the number of search matches in the modeline
-(global-anzu-mode +1)
-
 (provide 'ui)
